@@ -18,7 +18,7 @@ class BankAccountResource extends JsonResource
         return [
             '_type' => class_basename($this->resource),
             'id' => $this->resource->id,
-            'user' => new UserResource($this->resource->user),
+            'user' => $this->when(!$request->routeIs('api.public.bankAccount.balance') , new UserResource($this->resource->user)),
             'balance' => $this->resource->amount,
             'created_at' => $this->resource->created_at->timestamp,
         ];
