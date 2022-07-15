@@ -37,4 +37,16 @@ class BankAccountController extends Controller
         $account = $this->repository->create($request->validated());
         return new BankAccountResource($account);
     }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return 
+     */
+    public function balance(Request $request)
+    {
+        $account = $this->repository->find($request->id);
+        return new BankAccountResource($account);
+    }
 }
