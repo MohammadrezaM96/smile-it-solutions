@@ -4,8 +4,10 @@ namespace App\Http\Controllers\V1\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Api\BankAccount\StoreBankAccountRequest;
+use App\Http\Resources\V1\Api\BankAccount\BankAccountResource;
 use App\Repositories\Interfaces\BankAccountRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class BankAccountController extends Controller
 {
@@ -18,11 +20,11 @@ class BankAccountController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        return $this->repository->getAll();
+        return BankAccountResource::collection($this->repository->getAll());
     }
 
     /**
