@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\Api\BankAccountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('Api')->group(function () {
+    // bank Account Routes
     Route::apiResource('bankAccount', 'BankAccountController')->only(['index' , 'store']);
+    Route::get('bankAccount/balance', [BankAccountController::class, 'balance'])->name('bankAccount.balance');
+
     Route::apiResource('transfer', 'TransferController')->only(['store']);
 });
