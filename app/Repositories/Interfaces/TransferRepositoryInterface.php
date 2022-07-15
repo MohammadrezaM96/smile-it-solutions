@@ -6,7 +6,7 @@ interface TransferRepositoryInterface{
   
     public function find($id);
     
-    public function getAll();
+    public function getAll($data);
     
     public function create($data);
                            
