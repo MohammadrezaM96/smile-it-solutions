@@ -15,9 +15,9 @@ class TransferRepository implements TransferRepositoryInterface
         return Transfer::find($id);
     }
 
-    public function getAll()
+    public function getAll($data)
     {
-        return Transfer::all();
+        return Transfer::OfBankAccountId($data->bankAccountId)->paginate();
     }
 
     public function create($data)
