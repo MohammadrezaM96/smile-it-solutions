@@ -21,5 +21,12 @@ class BankAccountRepository implements BankAccountRepositoryInterface
     public function create($data)
     {
         return BankAccount::create($data);
+    } 
+    
+    public function update($id, $data)
+    {
+        return $this->find($id)->update($data);
     }
+
+
 }
