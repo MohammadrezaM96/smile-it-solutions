@@ -30,10 +30,11 @@ class BankAccountController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param StoreBankAccountRequest $request
-     * @return \Illuminate\Http\Response
+     * @return BankAccountResource
      */
-    public function store(StoreBankAccountRequest $request)
+    public function store(StoreBankAccountRequest $request): BankAccountResource
     {
-        return $this->repository->create($request->validated());
+        $account = $this->repository->create($request->validated());
+        return new BankAccountResource($account);
     }
 }
