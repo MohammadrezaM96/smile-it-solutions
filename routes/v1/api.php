@@ -19,5 +19,5 @@ Route::namespace('Api')->group(function () {
     Route::apiResource('bankAccount', 'BankAccountController')->only(['index' , 'store']);
     Route::get('bankAccount/balance', [BankAccountController::class, 'balance'])->name('bankAccount.balance');
 
-    Route::apiResource('transfer', 'TransferController')->only(['store']);
+    Route::apiResource('transfer', 'TransferController')->only(['index', 'store']);
 });
