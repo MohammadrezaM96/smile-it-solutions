@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Repositories\Eloquent\BankAccountRepository;
+use App\Repositories\Eloquent\TransferRepository;
 use App\Repositories\Interfaces\BankAccountRepositoryInterface;
+use App\Repositories\Interfaces\TransferRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(BankAccountRepositoryInterface::class, BankAccountRepository::class);
+        $this->app->bind(TransferRepositoryInterface::class, TransferRepository::class);
     }
 
     /**
