@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::namespace('Api')->group(function () {
-    Route::apiResource('bankAccount', 'BankAccountController')->only('store');
+    Route::apiResource('bankAccount', 'BankAccountController')->only(['index' , 'store']);
 });
